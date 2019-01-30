@@ -28,39 +28,48 @@
   <body>    
     
     <div class="container">
-    
+      <div>Test Heading</div>
+      <div id="gifs">
+       
+      </div>
     </div>
     
     <!---==============================================================--> 
     <!---==========================JavaScript==========================--> 
     <!---==============================================================--> 
     <script> 
+    var search = "cat";
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=INLAjPbuAMOdQpudEZ8XlXrB3c3YPpL3&limit=5";
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+      
+      //Response testing
       console.log(response);
       console.log(response.Runtime);
+      
+      // Create a new div element
+      var body = $("#gifs");
+      var item = $("<div>");
+      var gifResponse = $("<div>").text(response.data[0].images.title);
+
+      // Append 
+      item.append(gifResponse);
+      
+      body.append(item);
+
+      
+     
+  
     });
+    
 
 
     </script>
  
   </body>
 </html>
-
-
-// constructing a queryURL variable we will use instead of the literal string inside of the ajax method
-var title = "space+jam";
-var queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).then(function(response) {
-  console.log(response);
-  console.log(response.Runtime);
-});
 
 
 
