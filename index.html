@@ -25,22 +25,42 @@
     <!---==============================================================--> 
     <!---============================Body==============================--> 
     <!---==============================================================--> 
-  
   <body>    
+    
     <div class="container">
-   
+    
     </div>
     
     <!---==============================================================--> 
     <!---==========================JavaScript==========================--> 
     <!---==============================================================--> 
-    <script>
-  
+    <script> 
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=INLAjPbuAMOdQpudEZ8XlXrB3c3YPpL3&limit=5";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      console.log(response.Runtime);
+    });
+
 
     </script>
  
   </body>
 </html>
+
+
+// constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+var title = "space+jam";
+var queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+  console.log(response.Runtime);
+});
 
 
 
