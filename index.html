@@ -52,7 +52,7 @@
       // Create a new div element
       var body = $("#gifs");
       var item = $("<div>");
-      var gifResponse = $("<div>").text(response.data[0].images.title);
+      var gifResponse = $("<div>").text(response.data[0].images.downsized.url);
 
       // Append 
       item.append(gifResponse);
