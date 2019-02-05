@@ -28,10 +28,14 @@
   <body>    
     
     <div class="container">
-      <div>Test Heading</div>
+      <div><h3>GifTastical</h3></div>
       <div id="gifs">
        
       </div>
+      <div id="ratings">
+       
+      </div>
+
     </div>
     
     <!---==============================================================--> 
@@ -52,26 +56,27 @@
       // Create a new div element
       var body = $("#gifs");
       var item = $("<div>");
-      var gifResponse = $("<div>").text(response.data[0].images.downsized.url);
-
-      // Append 
-      item.append(gifResponse);
-      
+      //Variables
+      var rating = response.data[0].rating;
+      var gifResponseStill = response.data[0].images.original_still.url;
+      var gifResponseLooping = response.data[0].images.original.url;
+      //Output
+      var output = "<div>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseLooping + "'/>";
+      // Append and display
+      item.append(output);
       body.append(item);
 
       
-     
   
     });
-    
-
-
     </script>
  
   </body>
 </html>
 
 
+
+$("<div>").text(
 
 
 
