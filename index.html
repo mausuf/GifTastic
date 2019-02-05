@@ -30,12 +30,8 @@
     <div class="container">
       <div><h3>GifTastical</h3></div>
       <div id="gifs">
-       
+       <!--Dynamic Results Get Inserted Here-->
       </div>
-      <div id="ratings">
-       
-      </div>
-
     </div>
     
     <!---==============================================================--> 
@@ -56,27 +52,33 @@
       // Create a new div element
       var body = $("#gifs");
       var item = $("<div>");
+      
+      //Loop to get multiple responses
+      for(var i = 0; i < 10; i++) {
       //Variables
-      var rating = response.data[0].rating;
-      var gifResponseStill = response.data[0].images.original_still.url;
-      var gifResponseLooping = response.data[0].images.original.url;
+      var rating = response.data[i].rating;
+      var gifResponseStill = response.data[i].images.original_still.url;
+      var gifResponseLooping = response.data[i].images.original.url;
       //Output
-      var output = "<div>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseLooping + "'/>";
+      var output = "<div class='float-left' id='cats'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseStill + "'/>";
       // Append and display
       item.append(output);
       body.append(item);
+      }
 
-      
-  
+      document.getElementById("cats").onclick = function() {
+        var output2 = "<div class='float-left'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseLooping + "'/>";
+      // Append and display
+      item.append(output2);
+      body.append(item);
+
+      };
+
     });
     </script>
  
   </body>
 </html>
-
-
-
-$("<div>").text(
 
 
 
