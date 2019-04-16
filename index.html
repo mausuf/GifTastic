@@ -1,84 +1,97 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>GifTastic</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Style CSS -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="assets/css/style.css"/>
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"/>
-    <!-- jQuery library -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Javascript -->
-    <script src="assets/javascript/app.js"></script>
-  </head>
-    <!---==============================================================--> 
-    <!---============================Body==============================--> 
-    <!---==============================================================--> 
-  <body>    
-    
-    <div class="container">
-      <div><h3>GifTastical</h3></div>
-      <div id="gifs">
-       <!--Dynamic Results Get Inserted Here-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>GifTastic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Style CSS -->
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <!-- jQuery library -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Javascript -->
+  <script src="assets/javascript/app.js"></script>
+</head>
+<!---==============================================================-->
+<!---============================Body==============================-->
+<!---==============================================================-->
+
+<body>
+  <div class="container">
+    <!-- Container Start -->
+
+    <!-- Form Update-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-2 col-sm-12">
+          <form id="topic-form">
+            <!-- <label for="userInput">Add a button!</label> -->
+            <input type="text" id="userInput">
+
+            <input id="addBtns" type="submit" value="">
+            <br><br>
+          </form>
+          <div id="btnsHere"></div>
+        </div>
+        <div class="col-lg-10 card-columns" id="gifsShowHere"></div>
       </div>
     </div>
-    
-    <!---==============================================================--> 
-    <!---==========================JavaScript==========================--> 
-    <!---==============================================================--> 
-    <script> 
+
+    <!-- Original Page -->
+    <div>
+      <h3>GifTastical</h3>
+    </div>
+    <div id="gifs">
+      <!--Dynamic Results Get Inserted Here-->
+    </div>
+  </div><!-- Container End -->
+
+
+
+
+  <!---==============================================================-->
+  <!---==========================JavaScript==========================-->
+  <!---==============================================================-->
+  <!-- <script>
     var search = "cat";
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=INLAjPbuAMOdQpudEZ8XlXrB3c3YPpL3&limit=5";
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
-      
+    }).then(function (response) {
+
       //Response testing
       console.log(response);
       console.log(response.Runtime);
-      
+
       // Create a new div element
       var body = $("#gifs");
       var item = $("<div>");
-      
+
       //Loop to get multiple responses
-      for(var i = 0; i < 10; i++) {
-      //Variables
-      var rating = response.data[i].rating;
-      var gifResponseStill = response.data[i].images.original_still.url;
-      var gifResponseLooping = response.data[i].images.original.url;
-      //Output
-      var output = "<div class='float-left' id='cats'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseStill + "'/>";
-      // Append and display
-      item.append(output);
-      body.append(item);
+      for (var i = 0; i < 10; i++) {
+        //Variables
+        var rating = response.data[i].rating;
+        var gifResponseStill = response.data[i].images.original_still.url;
+        var gifResponseLooping = response.data[i].images.original.url;
+        //Output
+        var output = "<div class='float-left' id='cats'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseStill + "'/>";
+        // Append and display
+        item.append(output);
+        body.append(item);
       }
 
-      document.getElementById("cats").onclick = function() {
+      document.getElementById("cats").onclick = function () {
         var output2 = "<div class='float-left'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseLooping + "'/>";
-      // Append and display
-      item.append(output2);
-      body.append(item);
-
+        // Append and display
+        item.append(output2);
+        body.append(item);
       };
-
     });
-    </script>
- 
-  </body>
+  </script> -->
+</body>
 </html>
-
-
-
