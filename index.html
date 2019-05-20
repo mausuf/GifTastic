@@ -16,6 +16,7 @@
   <!-- Javascript -->
   <script src="assets/javascript/app.js"></script>
 </head>
+
 <!---==============================================================-->
 <!---============================Body==============================-->
 <!---==============================================================-->
@@ -24,74 +25,28 @@
   <div class="container">
     <!-- Container Start -->
 
+    <div>
+        <h3>GifTastical</h3>
+    </div>
+
     <!-- Form Update-->
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-2 col-sm-12">
-          <form id="topic-form">
-            <!-- <label for="userInput">Add a button!</label> -->
-            <input type="text" id="userInput">
 
-            <input id="addBtns" type="submit" value="">
-            <br><br>
+          <div id="buttonTags"></div>
+
+          <form id="searchForm">
+            <label for="searchInput">Search Anything!</label>
+            <input type="text" id="searchInput">
+            <input id="addSearchTag" type="submit" value="Add Search Tag!">
           </form>
-          <div id="btnsHere"></div>
+
+          <div id="searches"></div>
         </div>
-        <div class="col-lg-10 card-columns" id="gifsShowHere"></div>
       </div>
     </div>
 
-    <!-- Original Page -->
-    <div>
-      <h3>GifTastical</h3>
-    </div>
-    <div id="gifs">
-      <!--Dynamic Results Get Inserted Here-->
-    </div>
   </div><!-- Container End -->
-
-
-
-
-  <!---==============================================================-->
-  <!---==========================JavaScript==========================-->
-  <!---==============================================================-->
-  <!-- <script>
-    var search = "cat";
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=INLAjPbuAMOdQpudEZ8XlXrB3c3YPpL3&limit=5";
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function (response) {
-
-      //Response testing
-      console.log(response);
-      console.log(response.Runtime);
-
-      // Create a new div element
-      var body = $("#gifs");
-      var item = $("<div>");
-
-      //Loop to get multiple responses
-      for (var i = 0; i < 10; i++) {
-        //Variables
-        var rating = response.data[i].rating;
-        var gifResponseStill = response.data[i].images.original_still.url;
-        var gifResponseLooping = response.data[i].images.original.url;
-        //Output
-        var output = "<div class='float-left' id='cats'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseStill + "'/>";
-        // Append and display
-        item.append(output);
-        body.append(item);
-      }
-
-      document.getElementById("cats").onclick = function () {
-        var output2 = "<div class='float-left'>" + "<h5 id='ratings'>Rating: " + rating + "</h5>" + "<img height='300px' width='300px' src='" + gifResponseLooping + "'/>";
-        // Append and display
-        item.append(output2);
-        body.append(item);
-      };
-    });
-  </script> -->
 </body>
 </html>
