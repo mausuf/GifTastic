@@ -26,7 +26,7 @@ $(document).on("click",".searchButton",function() {
   $("#searches").empty();
   var searchTag = $(this).data("type");
   console.log(searchTag);
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTag + "&api_key=INLAjPbuAMOdQpudEZ8XlXrB3c3YPpL3&limit=10";
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTag + "&api_key=INLAjPbuAMOdQpudEZ8XlXrB3c3YPpL3&limit=7";
   $.ajax({url:queryURL, method:"GET"})
     .done(function(response) {
       // console.log(response);
